@@ -1,6 +1,7 @@
 package nyc.c4q.triviagame;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.v4.app.DialogFragment;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements Listener, ScoreLi
     private FrameLayout frameLayout;
     private int visibility;
 
+    private int numOfQuestions, category;
+    private String difficulty, type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements Listener, ScoreLi
         bundle.putInt(SCORE, score);
         scoreFragment.setArguments(bundle);
 
+        Intent intent = getIntent();
+        numOfQuestions = intent.getIntExtra("Number of Question",0);
+        category = intent.getIntExtra("Category", 9);
+        difficulty = intent.getStringExtra("Difficulty");
+        type = intent.getStringExtra("Type");
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.score_container, scoreFragment);
@@ -80,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements Listener, ScoreLi
 
         QuestionsService questionsService = retrofit.create(QuestionsService.class);
 
-        final Call<QuestionsResponse> questions = questionsService.getQuestions();
+        final Call<QuestionsResponse> questions = questionsService.getQuestions(numOfQuestions,category,difficulty, type);
         questions.enqueue(new Callback<QuestionsResponse>() {
             @Override
             public void onResponse(Call<QuestionsResponse> call, Response<QuestionsResponse> response) {
