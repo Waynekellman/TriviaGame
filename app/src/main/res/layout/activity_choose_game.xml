@@ -4,22 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nyc.c4q.triviagame.ChooseGameActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="nyc.c4q.triviagame.ChooseGameActivity">
+
     <Button
         android:id="@+id/game_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="General Knowledge"/>
+        android:text="@string/general_knowledge" />
+
+
     <Button
         android:id="@+id/game_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mathematics"/>
+        android:text="@string/mathematics" />
+
+
     <Button
         android:id="@+id/game_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="History"/>
+        android:text="@string/history" />
+
 
 </LinearLayout>

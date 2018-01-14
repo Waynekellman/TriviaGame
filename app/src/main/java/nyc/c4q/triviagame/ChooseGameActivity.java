@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class ChooseGameActivity extends AppCompatActivity implements View.OnClickListener{
-    //math category 19
-    // general knowledge category 9
-    //history category 23
-
     private Button generalKnowledge, mathematics, history;
 
     @Override
@@ -52,4 +48,5 @@ public class ChooseGameActivity extends AppCompatActivity implements View.OnClic
         intent.putExtra("Type", type);
         startActivity(intent);
     }
+
 }
