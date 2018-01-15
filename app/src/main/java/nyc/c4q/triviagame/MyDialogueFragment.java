@@ -55,7 +55,6 @@ public class MyDialogueFragment extends DialogFragment implements View.OnClickLi
         TextView answer3TV = v.findViewById(R.id.answer3_itemview);
         TextView answer4TV = v.findViewById(R.id.answer4_itemview);
         TextView questionTV = v.findViewById(R.id.question_itemview);
-        String[] randomizeAnswerArray = new String[4];
 
         List<String> randomizedQuestions = new ArrayList<>();
         randomizedQuestions.add(question.getIncorrect_answers().get(0));
